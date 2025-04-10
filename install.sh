@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo su
+
 INSTALL_DIR="/opt/photobooth-image-uploader"
 GIT_REPO_URL="https://github.com/Twyco/photobooth_image_uploader.git"
 
