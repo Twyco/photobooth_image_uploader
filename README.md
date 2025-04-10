@@ -46,7 +46,7 @@ The uploader requires some configuration to work properly.
 #### 1. Create `.env` Config File
 
 ```bash
-cp /opt/photobooth-image-uploader/.env.example /opt/photobooth-image-uploader/.env
+sudo cp /opt/photobooth-image-uploader/.env.example /opt/photobooth-image-uploader/.env
 ```
 
 #### 2. Edit the `.env` Config File
@@ -54,7 +54,7 @@ cp /opt/photobooth-image-uploader/.env.example /opt/photobooth-image-uploader/.e
 Open the configuration file (`.env`)
 
 ```bash
-nano /opt/photobooth-image-uploader/.env
+sudo nano /opt/photobooth-image-uploader/.env
 ```
 
 and update the following fields, like in this Example:
