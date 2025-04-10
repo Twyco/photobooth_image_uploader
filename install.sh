@@ -3,7 +3,7 @@
 sudo su
 
 INSTALL_DIR="/opt/photobooth-image-uploader"
-GIT_REPO_URL="https://github.com/Twyco/photobooth_image_uploader.git"
+GIT_REPO_URL="https://github.com/Twyco/photobooth_image_uploader"
 
 if ! command -v node &>/dev/null; then
     echo "Node.js is not installed. Please install."
@@ -15,6 +15,7 @@ git clone "$GIT_REPO_URL" "$INSTALL_DIR"
 
 cd "$INSTALL_DIR" || exit
 
+pwd
 echo "Installing dependencies..."
 npm install
 
@@ -27,6 +28,3 @@ systemctl enable photobooth-image-uploader.service
 systemctl start photobooth-image-uploader.service
 
 echo "Installation complete! The service is now running and will start automatically on boot."
-
-echo "Service-Logs:"
-journalctl -u photobooth-image-uploader.service -n 10
