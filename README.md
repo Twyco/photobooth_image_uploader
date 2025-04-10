@@ -16,6 +16,7 @@ You can install the photobooth image uploader service with a single command usin
 Before you install the service, make sure you have the following installed:
 
 - **Node.js** (Version 14.x or higher)
+- **git**
 
 ### Step 1: Install the Service
 
@@ -26,7 +27,7 @@ You can install the service using one of the following methods:
 Run the following command to download and install the service using `curl`:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/your-username/your-repository/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh | bash
 ```
 
 #### Install using `wget`
@@ -34,7 +35,7 @@ curl -sSL https://raw.githubusercontent.com/your-username/your-repository/main/i
 Run the following command to download and install the service using `curl`:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/your-username/your-repository/main/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh | bash
 ```
 
 ### Step 2: Configuration
