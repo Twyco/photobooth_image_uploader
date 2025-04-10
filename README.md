@@ -27,7 +27,7 @@ You can install the service using one of the following methods:
 Run the following command to download and install the service using `curl`:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh | sudo bash
 ```
 
 #### Install using `wget`
@@ -35,7 +35,7 @@ curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main
 Run the following command to download and install the service using `curl`:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh | sudo bash
 ```
 
 ### Step 2: Configuration
@@ -46,7 +46,7 @@ The uploader requires some configuration to work properly.
 #### 1. Create `.env` Config File
 
 ```bash
-cp /opt/photobooth-image-uploader/.env.example /opt/photobooth-image-uploader/.env
+sudo cp /opt/photobooth-image-uploader/.env.example /opt/photobooth-image-uploader/.env
 ```
 
 #### 2. Edit the `.env` Config File
@@ -54,7 +54,7 @@ cp /opt/photobooth-image-uploader/.env.example /opt/photobooth-image-uploader/.e
 Open the configuration file (`.env`)
 
 ```bash
-nano /opt/photobooth-image-uploader/.env
+sudo nano /opt/photobooth-image-uploader/.env
 ```
 
 and update the following fields, like in this Example:
