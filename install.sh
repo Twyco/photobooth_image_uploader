@@ -23,6 +23,9 @@ cd "$INSTALL_DIR"
 echo "[INFO] Installing dependencies..."
 npm install
 
+echo "[INFO] Building Service..."
+npm run build
+
 echo "[INFO] Copying the systemd service file..."
 cp photobooth-image-uploader.service /etc/systemd/system/photobooth-image-uploader.service
 
