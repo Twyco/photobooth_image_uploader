@@ -2,31 +2,33 @@
 set -euo pipefail
 trap 'echo "[ERROR] Installation failed at line $LINENO"; exit 1' ERR
 
-sudo su
-
 INSTALL_DIR="/opt/photobooth-image-uploader"
 GIT_REPO_URL="https://github.com/Twyco/photobooth_image_uploader"
 
+if [[ $EUID -ne 0 ]]; then
+  echo "[ERROR] This script must be run with root privileges (use sudo)."
+  exit 1
+fi
+
 if ! command -v node &>/dev/null; then
-    echo "Node.js is not installed. Please install."
+    echo "[ERROR] Node.js is not installed. Please install Node.js first."
     exit 1
 fi
 
-echo "Cloning the repository..."
+echo "[INFO] Cloning the repository..."
 git clone "$GIT_REPO_URL" "$INSTALL_DIR"
 
-cd "$INSTALL_DIR" || exit
+cd "$INSTALL_DIR"
 
-pwd
-echo "Installing dependencies..."
+echo "[INFO] Installing dependencies..."
 npm install
 
-echo "Copying the systemd service file..."
-cp "$INSTALL_DIR/photobooth-image-uploader.service" /etc/systemd/system/photobooth-image-uploader.service
+echo "[INFO] Copying the systemd service file..."
+cp photobooth-image-uploader.service /etc/systemd/system/photobooth-image-uploader.service
 
-echo "Reloading systemd and enabling the service..."
+echo "[INFO] Reloading systemd and enabling the service..."
 systemctl daemon-reload
 systemctl enable photobooth-image-uploader.service
 systemctl start photobooth-image-uploader.service
 
-echo "Installation complete! The service is now running and will start automatically on boot."
+echo "[SUCCESS] Installation complete! The service is now running and will start automatically on boot."
