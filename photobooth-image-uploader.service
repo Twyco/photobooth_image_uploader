@@ -1,0 +1,17 @@
+[Unit]
+Description=Photobooth Image Uploader Service
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+
+WorkingDirectory=/opt/photobooth-image-uploader
+
+ExecStart=/usr/bin/node /opt/photobooth-image-uploader/dist/index.js
+
+Restart=always
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
