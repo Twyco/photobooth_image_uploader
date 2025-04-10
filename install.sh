@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+trap 'echo "[ERROR] Installation failed at line $LINENO"; exit 1' ERR
 
 sudo su
 
