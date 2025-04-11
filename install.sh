@@ -23,12 +23,11 @@ cd "$INSTALL_DIR"
 echo "[INFO] creating config File..."
 cp .env.example .env
 
-read -rp "Enter WATCH_PATH (e.g. /var/www/html/photobooth/data/images): " WATCH_PATH
-read -rp "Enter API_URL (e.g. https://photobooth.test/api/upload-image): " API_URL
-read -rp "Enter X_API_KEY: " X_API_KEY
-read -rp "Enter X_PHOTOBOOTH_AUTH_KEY: " X_PHOTOBOOTH_AUTH_KEY
+read -rp 'Enter WATCH_PATH (e.g. /var/www/html/photobooth/data/images): ' WATCH_PATH
+read -rp 'Enter API_URL (e.g. https://photobooth.test/api/upload-image): ' API_URL
+read -rp 'Enter X_API_KEY: ' X_API_KEY
+read -rp 'Enter X_PHOTOBOOTH_AUTH_KEY: ' X_PHOTOBOOTH_AUTH_KEY
 
-# 🔧 Werte in .env schreiben
 cat > .env <<EOF
 WATCH_PATH=$WATCH_PATH
 API_URL=$API_URL
