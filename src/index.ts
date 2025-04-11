@@ -69,6 +69,8 @@ watcher.on("add", async (filePath) => {
       console.log(`[SUCCESS] Image uploaded: ${fileName}`);
     } else {
       console.error(`[ERROR] Error while uploading: (${response.status})`);
+      console.error(`[DEBUG] Response data: ${response}`);
+      console.error(`[DEBUG] Response Error: ${response.error}`);
     }
   } catch (err: any) {
     console.error(`[ERROR] Error on upload: ${err.message}`);
