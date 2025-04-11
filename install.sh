@@ -23,22 +23,22 @@ cd "$INSTALL_DIR"
 echo "[INFO] creating config File..."
 cp .env.example .env
 
-WATCH_PATH=""
-API_URL=""
-X_API_KEY=""
-X_PHOTOBOOTH_AUTH_KEY=""
+# Declare variables to prevent set -u from failing
+WATCH_PATH="X"
+API_URL="X"
+X_API_KEY="X"
+X_PHOTOBOOTH_AUTH_KEY="X"
 
-read -rp 'Enter WATCH_PATH (e.g. /var/www/html/photobooth/data/images): ' WATCH_PATH
+# Prompt user
+read -rp 'Enter WATCH_PATH (e.g. /var/www/html/...): ' WATCH_PATH
 read -rp 'Enter API_URL (e.g. https://photobooth.test/api/upload-image): ' API_URL
 read -rp 'Enter X_API_KEY: ' X_API_KEY
 read -rp 'Enter X_PHOTOBOOTH_AUTH_KEY: ' X_PHOTOBOOTH_AUTH_KEY
 
-cat > .env <<EOF
-WATCH_PATH=$WATCH_PATH
-API_URL=$API_URL
-X_API_KEY=$X_API_KEY
-X_PHOTOBOOTH_AUTH_KEY=$X_PHOTOBOOTH_AUTH_KEY
-EOF
+echo "WATCH_PATH=$WATCH_PATH"
+echo "API_URL=$API_URL"
+echo "X_API_KEY=$X_API_KEY"
+echo "X_PHOTOBOOTH_AUTH_KEY=$X_PHOTOBOOTH_AUTH_KEY"
 
 echo "[INFO] Installing dependencies..."
 npm install
