@@ -100,3 +100,8 @@ Run the following command to remove the service using `wget`:
 ```bash
 wget -qO- https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/uninstall.sh | sudo bash
 ```
+
+## Debugging Service Logs
+```bash
+journalctl -u photobooth-image-uploader.service -n 10
+```
