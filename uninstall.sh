@@ -12,9 +12,9 @@ fi
 echo "[INFO] Deleting the repository..."
 rm -rf "$INSTALL_DIR"
 
-echo "[INFO] Disabling systemd and enabling the service..."
-systemctl stop photobooth-image-uploader.service
+echo "[INFO] Disabling the service..."
 systemctl disable photobooth-image-uploader.service
+systemctl stop photobooth-image-uploader.service
 systemctl daemon-reload
 
 echo "[INFO] Deleting the systemd service file..."

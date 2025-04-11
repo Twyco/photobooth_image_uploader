@@ -1,11 +1,9 @@
 # Photobooth Image Uploader
 
 ## Table of contents
- - [Installation](#installation)
-   - [Step 1: Install the Service](#step-1-install-the-service)
-   - [Step 2: Configuration](#step-2-configuration)
-   - [Step 3: Start and Enable the Service](#step-3-start-an-enable-the-service)
-   - [Step 4: Verify the Installation](#step-4-verify-the-installation)
+- [Installation](#installation)
+- [Manuel Configuration](#manuel-configuration)
+- [Uninstall](#uninstall)
 
 ## Installation
 
@@ -18,11 +16,11 @@ Before you install the service, make sure you have the following installed:
 - **Node.js** (Version 14.x or higher)
 - **git**
 
-### Step 1: Install the Service
+### Install the Service
 
 You can install the service using one of the following methods:
 
-#### Install using `curl`
+#### 1. Install using `curl`
 
 Run the following command to download and install the service using `curl`:
 
@@ -30,26 +28,29 @@ Run the following command to download and install the service using `curl`:
 curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh | sudo bash
 ```
 
-#### Install using `wget`
+#### 1. Install using `wget`
 
 Run the following command to download and install the service using `wget`:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh | sudo bash
+wget -qO /tmp/install.sh https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh && sudo bash /tmp/install.sh
 ```
 
-### Step 2: Configuration
+#### 2. Provide the Required Data
+During the installation, you will be prompted to enter certain information, such as paths and API keys. If you enter incorrect or incomplete data, or if you wish to change it later, you can do so manually as described in the [Manuel Configuration](#manuel-configuration) section.
 
-The uploader requires some configuration to work properly.
 
-
-#### 1. Create `.env` Config File
-
+#### 3. Verify the Installation
+Check the status of the service to ensure it's running correctly:
 ```bash
-sudo cp /opt/photobooth-image-uploader/.env.example /opt/photobooth-image-uploader/.env
+sudo systemctl status photobooth-image-uploader.service
 ```
 
-#### 2. Edit the `.env` Config File
+### Manuel Configuration
+
+If you provided incorrect or missing paths during the installation, or if you want to modify them later, you can update the configuration manually as follows:
+
+#### 1. Edit the `.env` Config File
 
 Open the configuration file (`.env`)
 
@@ -66,39 +67,33 @@ X_API_KEY=your-api-key-here
 X_PHOTOBOOTH_AUTH_KEY=your-auth-key-here
 ```
 
-#### 3. Save the Changes
+#### 2. Save the Changes
 
 When using `nano` press `Strg + O`,then `Enter` and finally `Strg + X`
 
-### Step 3. Start an Enable the Service
+### 3. Restart the Service
 
 If the service isn't already running, you can manually start it with:
+
 ```bash
-sudo systemctl start photobooth-image-uploader.service
+sudo systemctl restart photobooth-image-uploader.service
 ```
 
-To ensure that the service starts automatically on boot, enable it with:
-```bash
-sudo systemctl enable photobooth-image-uploader.service
-```
-
-### Step 4. Verify the Installation
-Check the status of the service to ensure it's running correctly:
+Verify the changes:
 ```bash
 sudo systemctl status photobooth-image-uploader.service
 ```
 
 ## Uninstall
 
-#### Install using `curl`
+#### Uninstall using `curl`
 
 Run the following command to remove the service using `curl`:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/uninstall.sh | sudo bash
+curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh -o /tmp/install.sh && sudo bash /tmp/install.sh```
 ```
-
-#### Install using `wget`
+#### Uninstall using `wget`
 
 Run the following command to remove the service using `wget`:
 
