@@ -25,7 +25,7 @@ You can install the service using one of the following methods:
 Run the following command to download and install the service using `curl`:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh | sudo bash
+curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh -o /tmp/install.sh && sudo bash /tmp/install.sh
 ```
 
 #### 1. Install using `wget`
