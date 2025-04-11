@@ -2,10 +2,10 @@
 
 ## Table of contents
  - [Installation](#installation)
- - [Step 1: Install the Service](#step-1-install-the-service)
- - [Step 2: Configuration](#step-2-configuration)
- - [Step 3: Start and Enable the Service](#step-3-start-an-enable-the-service)
- - [Step 4: Verify the Installation](#step-4-verify-the-installation)
+   - [Step 1: Install the Service](#step-1-install-the-service)
+   - [Step 2: Configuration](#step-2-configuration)
+   - [Step 3: Start and Enable the Service](#step-3-start-an-enable-the-service)
+   - [Step 4: Verify the Installation](#step-4-verify-the-installation)
 
 ## Installation
 
@@ -32,7 +32,7 @@ curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main
 
 #### Install using `wget`
 
-Run the following command to download and install the service using `curl`:
+Run the following command to download and install the service using `wget`:
 
 ```bash
 wget -qO- https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh | sudo bash
@@ -88,3 +88,20 @@ Check the status of the service to ensure it's running correctly:
 sudo systemctl status photobooth-image-uploader.service
 ```
 
+## Uninstall
+
+#### Install using `curl`
+
+Run the following command to remove the service using `curl`:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/uninstall.sh | sudo bash
+```
+
+#### Install using `wget`
+
+Run the following command to remove the service using `wget`:
+
+```bash
+wget -qO- https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/uninstall.sh | sudo bash
+```
