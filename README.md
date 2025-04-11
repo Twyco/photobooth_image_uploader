@@ -91,7 +91,7 @@ sudo systemctl status photobooth-image-uploader.service
 Run the following command to remove the service using `curl`:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/install.sh -o /tmp/install.sh && sudo bash /tmp/install.sh```
+curl -sSL https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main/uninstall.sh | sudo bash
 ```
 #### Uninstall using `wget`
 
