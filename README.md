@@ -42,14 +42,7 @@ wget -qO- https://raw.githubusercontent.com/Twyco/photobooth_image_uploader/main
 
 The uploader requires some configuration to work properly.
 
-
-#### 1. Create `.env` Config File
-
-```bash
-sudo cp /opt/photobooth-image-uploader/.env.example /opt/photobooth-image-uploader/.env
-```
-
-#### 2. Edit the `.env` Config File
+#### Edit the `.env` Config File
 
 Open the configuration file (`.env`)
 
