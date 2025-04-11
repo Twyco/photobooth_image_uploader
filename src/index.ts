@@ -50,13 +50,15 @@ watcher.on("add", async (filePath) => {
   if (!/\.(jpg|jpeg|png)$/i.test(filePath)) return;
 
   console.log(`[NEW] Image detected: ${filePath}`);
+  await waitForFileStable(filePath);
+  console.log(`[INFO] Image saved completed: ${filePath}`);
 
   try {
     const fileStream = fs.createReadStream(filePath);
     const fileName = path.basename(filePath);
     const form = new FormData();
 
-    form.append("image", fileStream, );
+    form.append("image", fileStream, fileName);
 
     const response = await axios.post(API_URL, form, {
       headers: {
@@ -75,3 +77,34 @@ watcher.on("add", async (filePath) => {
     console.error(`[ERROR] Error on upload: ${err.message}`);
   }
 });
+
+async function waitForFileStable(path: string, timeout = 3000, interval = 200): Promise<void> {
+  let lastSize = 0;
+  let stableCounter = 0;
+
+  const start = Date.now();
+
+  return new Promise((resolve, reject) => {
+    const check = () => {
+      fs.stat(path, (err, stats) => {
+        if (err) return reject(err);
+
+        if (stats.size === lastSize) {
+          stableCounter += 1;
+          if (stableCounter >= 3) return resolve(); // 3x hintereinander gleiche Größe
+        } else {
+          stableCounter = 0;
+          lastSize = stats.size;
+        }
+
+        if (Date.now() - start > timeout) {
+          return reject(new Error("File not stable in time"));
+        }
+
+        setTimeout(check, interval);
+      });
+    };
+
+    check();
+  });
+}
